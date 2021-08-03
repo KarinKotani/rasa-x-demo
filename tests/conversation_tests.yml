@@ -1,0 +1,20 @@
+version: "2.0"
+stories:
+- story: Story from Conversation ID fdef995bc6b84eb3b934d336fb4f15b9
+  steps:
+  - intent: greet
+    user: |-
+      hello
+  - action: action_greet_user
+  - intent: chitchat
+    user: |-
+      how are you?
+  - action: utter_chitchat
+  - intent: need_help_broad
+    user: |-
+      I have a question.
+  - action: utter_ask_more_details
+  - intent: explain
+    user: |-
+      I don't know what you mean
+  - action: utter_no_further_info

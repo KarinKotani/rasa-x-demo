@@ -1,34 +1,57 @@
-version: "2.0"
-
-intents:
-  - greet
-  - goodbye
-  - mood_affirm
-  - mood_deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- mood_affirm:
+    use_entities: true
+- mood_deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- chitchat:
+    use_entities: true
+- explain:
+    use_entities: true
+- need_help_broad:
+    use_entities: true
+entities: []
+slots: {}
+responses:
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  - text: test
+  utter_happy:
+  - text: Great, carry on!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_test:
+  - buttons:
+    - payload: greet
+      title: hello
+    - payload: action
+      title: get started
+    text: test test
+  - text: test
+  utter_help:
+  - text: test
+  utter_help2:
+  - text: test
+  - text: test2
+  utter_test2:
+  - text: this is for testing purpose
+actions:
+- action_greet_user
+forms: {}
+e2e_actions: []
